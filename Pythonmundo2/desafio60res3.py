@@ -4,5 +4,4 @@ for f in range(n, 0, -1):
     print(f, end='')
     print(' X ' if f > 1 else ' = ', end='')
     n = f * n
-    print(n)
 print(n)

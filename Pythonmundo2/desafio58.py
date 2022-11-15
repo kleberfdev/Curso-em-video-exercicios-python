@@ -1,9 +1,13 @@
 from random import randint
-numero = int(input('Descubra o número entre 0 e 10 que estou pensando: '))
-cont = 1
+palpites = 0
 sorteio = randint(0, 10)
+numero = 1
 while sorteio != numero:
-    print(sorteio)
-    numero = int(input('Você errou tente novamente: '))    
-    cont = cont + 1
-print(f'Você acertou depois de {cont} vezes')
+    numero = int(input('Descubra o número entre 0 e 10 que estou pensando: '))
+    palpites = palpites + 1
+    if sorteio < numero:
+        print(f'Menos... {palpites}° tentativa. Tente novamente: ')
+    elif sorteio > numero:
+        print(f'Mais... {palpites}° tentativa. Tente novamente: ') 
+
+print(f'Você acertou depois de {palpites} vezes')
