@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: blue;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            text-align: center;
+        }
+        button {
+            width: 10em;
+            height: 2em;
+            background-color: purple;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: rgb(163, 17, 163);
+            color: white;
+            border: 1.4px solid rgb(66, 0, 66);
+        }
+    </style>
+</head>
+<body>
+    <h1>Qual é o maior?</h1>
+    <label for="n1">Número do 1° jogador</label>
+    <input type="number" id="n1" placeholder="Digite um número">
+    <label for="n2">Número do 2° jogador</label>
+    <input type="number" id="n2" placeholder="Digite um número">
+    <button onclick="jogar()">Jogar</button>
+
+    <div id="int1"></div>
+
+    <script>
+        function numeroAleatorio() {
+            var random = Math.random()
+            if (random <= 0.5) {
+                return 0;
+            } else if (random > 0.5) {
+                return 1;
+            }
+        }
+
+        function jogar() {
+            var n1 = Number(document.querySelector('input#n1').value)
+            var n2 = Number(document.querySelector('input#n2').value)
+            var resposta = document.querySelector('div#int1')
+            var nAleatorio = numeroAleatorio()
+            
+            console.log(nAleatorio)
+            resposta.innerHTML=''
+
+            if (n1 == n2) {
+                resposta.innerHTML='<p>Números iguais!</p>'
+                resposta.innerHTML+='<p><strong><em>Empate</em></strong></p>'
+            } else {
+                if (nAleatorio < 0.5) {
+                    resposta.innerHTML=`<p>O número aleatorio foi ${nAleatorio}... O que digitou o <strong><em>menor</em></strong> valor ganha!</p>`
+                    if (n1 < n2) {
+                        resposta.innerHTML+=`<p>O menor valor é ${n1}</p>`
+                        resposta.innerHTML+=`<p><strong>Jogador 1 venceu!</strong></p>`
+                    } else {
+                        resposta.innerHTML+=`<p>O menor valor é ${n2}</p>`
+                        resposta.innerHTML+=`<p><strong>Jogador 2 venceu!</strong></p>`
+                }
+                } else {
+                    resposta.innerHTML=`<p>O número aleatorio foi ${nAleatorio}... O que digitou o <strong><em>maior</em></strong> valor ganha!</p>`
+                    if (n1 > n2) {
+                        resposta.innerHTML+=`<p>O maior valor é ${n1}</p>`
+                        resposta.innerHTML+=`<p><strong>Jogador 1 venceu!</strong></p>`
+                    } else {
+                        resposta.innerHTML+=`<p>O maior valor é ${n2}</p>`
+                        resposta.innerHTML+=`<p><strong>Jogador 2 venceu!</strong></p>`
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
