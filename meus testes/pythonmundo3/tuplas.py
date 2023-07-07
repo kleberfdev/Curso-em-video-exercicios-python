@@ -1,4 +1,4 @@
-lanche = ["a", "b", "c", "d", "e"]
+lanche = ("a", "b", "c", "d", "e")
 print(lanche[2])
 print(lanche[1:])
 print(lanche[-1])
