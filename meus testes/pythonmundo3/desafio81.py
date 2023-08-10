@@ -1,10 +1,20 @@
-from random import choice
+lista =[]
+listapar = []
+listaimpar = []
+while True:
+    num = int(input('Digite um número: '))
+    lista.append(num)
+    if num % 2 == 0:
+        listapar.append(num)
+    else:
+        listaimpar.append(num)
+    perg = input('Deseja continuar? S/N: ').upper()
+    if perg not in 'S':
+        break
+            
 
-# Crie uma lista de frutas
-frutas = ["maçã", "banana", "laranja", "uva", "melancia"]
 
-# Use a função choice para selecionar aleatoriamente uma fruta da lista
-fruta_aleatoria = choice(frutas)
 
-# Imprima a fruta escolhida aleatoriamente
-print("Fruta escolhida aleatoriamente:", fruta_aleatoria)
+print(f'A lista contém os números {lista}')
+print(f'A lista contém os números pares {listapar}')
+print(f'A lista contém os números impares {listaimpar}')
